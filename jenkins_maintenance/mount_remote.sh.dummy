@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+my_dir=$(cd $(dirname $0) && pwd)
+source $my_dir/variables.sh
+
+# If your don't need remote backuping, you can use this 'fake' mount script,
+# in which we create a local folder and regard it as a remote one.
+mkdir -p ${REMOTE_BACKUP_DIR}

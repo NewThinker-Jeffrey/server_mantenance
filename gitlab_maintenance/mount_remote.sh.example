@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+my_dir=$(cd $(dirname $0) && pwd)
+source $my_dir/variables.sh
+
+set -e
+
+
+# Create a 'marker file' (to identify the remote folder) in your
+# remote folder beforehand.
+# Then, we can check the file to know whether we have mounted the
+# remote folder.
+MARKER_FILE=MarkerFileForRemoteBackupFolder
+
+# Set your mount command.
+# If you have already writen the mount options (with 'noauto')
+# in '/etc/fstab', the default mount command below is ok.
+MOUNT_COMMAND="mount ${REMOTE_BACKUP_DIR}"
+
+if [ -f "${REMOTE_BACKUP_DIR}/${MARKER_FILE}" ]; then
+  echo "Already mounted."
+else
+  # run the mount command
+  ${MOUNT_COMMAND}
+fi
