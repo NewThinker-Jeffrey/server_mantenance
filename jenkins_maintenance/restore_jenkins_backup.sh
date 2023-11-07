@@ -17,6 +17,7 @@ if [ "$backup_name" == "" ]; then
     exit 1
 fi
 
+mkdir -p ${LOCAL_BACKUP_DIR}
 set -e
 
 echo "Copying back the backup data from remote ..."

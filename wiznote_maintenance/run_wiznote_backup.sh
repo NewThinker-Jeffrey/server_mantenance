@@ -19,6 +19,7 @@ set -e
 datestr=$(date "+%Y-%m-%d_%H-%M-%S_%N")
 backup_name=wiznote_backup_${datestr}
 
+mkdir -p ${LOCAL_BACKUP_DIR}
 cd $WIZNOTE_HOME
 tar --same-owner -zcvf ${LOCAL_BACKUP_DIR}/${backup_name}.tar.gz  .
 
